@@ -1,0 +1,147 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: black;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background-color: #eef1f5;
+}
+
+/* ---------- En-tête ---------- */
+header {
+    background-color: #dc0a2d;
+    text-align: center;
+    padding: 25px 16px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+header h1,
+header p {
+    color: white;
+}
+
+#recherche {
+    margin-top: 12px;
+    width: 100%;
+    max-width: 420px;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 20px;
+    font-size: 1rem;
+}
+
+/* ---------- Grille de cartes (le "nav" de index.html) ---------- */
+nav {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 30px;
+    max-width: 1400px;
+    margin: auto;
+    padding: 20px 16px 50px;
+}
+
+/* ---------- Carte (même style que #lucario, #mewtwo, #noctali) ---------- */
+.carte {
+    background-color: color-mix(in srgb, var(--couleur) 65%, black);
+    border-radius: 20px;
+    border: 10px solid var(--couleur);
+    margin-top: 30px;
+    padding: 25px 25px 60px 25px;
+    position: relative;
+    transform: perspective(800px) rotateY(0deg) translateY(0) scale(1);
+    transition: transform 0.5s, box-shadow 0.5s;
+}
+
+.carte:hover {
+    transform: perspective(800px) rotateY(-20deg) translateY(-10px) scale(1.05);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+    z-index: 2;
+}
+
+.carte:nth-child(even):hover {
+    transform: perspective(800px) rotateY(20deg) translateY(-10px) scale(1.05);
+}
+
+.carte[hidden] {
+    display: none;
+}
+
+.numero {
+    position: absolute;
+    top: 8px;
+    right: 14px;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.carte img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: contain;
+}
+
+/* Titre et stats : même encadré blanc transparent que index.html */
+.carte h2 {
+    background-color: rgba(255, 255, 255, 0.4);
+    text-align: center;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-radius: 20px 20px 0 0;
+    border: 5px rgba(255, 255, 255, 0.3) solid;
+}
+
+.carte p {
+    background-color: rgba(255, 255, 255, 0.4);
+    text-align: left;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 4px 8px;
+    border-radius: 0 0 20px 20px;
+    border: 5px rgba(255, 255, 255, 0.3) solid;
+}
+
+/* ---------- Types ---------- */
+/* Chaque classe de type définit --couleur, utilisée par la carte et les badges */
+.types {
+    position: absolute;
+    bottom: 15px;
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+
+.types span {
+    color: white;
+    font-weight: bold;
+    padding: 4px 15px;
+    margin: 0 5px;
+    border-radius: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    background-color: var(--couleur);
+}
+
+.normal   { --couleur: #a8a77a; }
+.feu      { --couleur: #ee8130; }
+.eau      { --couleur: #6390f0; }
+.plante   { --couleur: #7ac74c; }
+.electrik { --couleur: #d4b106; }
+.glace    { --couleur: #5fc4c0; }
+.combat   { --couleur: #c22e28; }
+.poison   { --couleur: #a33ea1; }
+.sol      { --couleur: #c9a24a; }
+.vol      { --couleur: #8f7ae8; }
+.psy      { --couleur: #f95587; }
+.insecte  { --couleur: #8fa31a; }
+.roche    { --couleur: #b6a136; }
+.spectre  { --couleur: #735797; }
+.dragon   { --couleur: #6f35fc; }
+.tenebres { --couleur: #705746; }
+.acier    { --couleur: #b7b7ce; }
+.fee      { --couleur: #d685ad; }
